@@ -1,11 +1,23 @@
 package stractural.abstrat.legs;
 
+import javafx.geometry.Point3D;
+import javafx.scene.shape.Cylinder;
+import javafx.scene.shape.Shape3D;
 import stractural.abstrat.common.MovingDirection;
 import stractural.abstrat.common.Part;
 import stractural.abstrat.common.TurningDirection;
 
-public interface Wheel extends Part {
-    void roll(int distance, MovingDirection direction);
+public abstract class Wheel extends Part {
+    public Wheel(Point3D initialPosition) {
+        super(initialPosition);
+    }
 
-    void setTurnAngle(int angle, TurningDirection direction);
+    protected Shape3D setShape() {
+        // todo elaborate an actual shape
+        return new Cylinder(20, 20);
+    }
+
+    abstract void roll(int distance, MovingDirection direction);
+
+    abstract void setTurnAngle(int angle, TurningDirection direction);
 }

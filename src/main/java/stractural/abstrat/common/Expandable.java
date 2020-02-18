@@ -1,9 +1,21 @@
 package stractural.abstrat.common;
 
-public interface Expandable extends Part {
-    void extendBy(int distance);
+import javafx.geometry.Point3D;
+import javafx.scene.shape.Cylinder;
+import javafx.scene.shape.Shape3D;
 
-    void collapseBy(int distance);
+public abstract class Expandable extends Part {
+    public Expandable(Point3D initialPosition) {
+        super(initialPosition);
+    }
 
-    void setTo(int extendedLength);
+    protected Shape3D setShape() {
+        return new Cylinder(10, 50);
+    }
+
+    abstract void extendBy(int distance);
+
+    abstract void collapseBy(int distance);
+
+    abstract void setTo(int extendedLength);
 }
