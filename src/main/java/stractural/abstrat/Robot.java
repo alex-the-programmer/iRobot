@@ -25,4 +25,19 @@ public abstract class Robot implements Part {
       leftLeg.setTurnAngle(angle, direction);
       rightLeg.setTurnAngle(angle, direction);
    }
+
+   public void raiseTopBy(int distance){
+      leftTopBoxExpandable.extendBy(distance);
+      rightTopBoxExpandable.extendBy(distance);
+   }
+
+   public void collapseTopBy(int distance){
+      leftTopBoxExpandable.collapseBy(distance);
+      rightTopBoxExpandable.collapseBy(distance);
+   }
+
+   public void setTopTo(int extendedLength){
+      leftTopBoxExpandable.setTo(extendedLength);
+      rightTopBoxExpandable.setTo(extendedLength);
+   }
 }
