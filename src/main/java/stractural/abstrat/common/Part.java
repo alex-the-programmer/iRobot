@@ -2,15 +2,15 @@ package stractural.abstrat.common;
 
 import Space.Space;
 import javafx.geometry.Point3D;
-import javafx.scene.shape.Shape;
+import javafx.scene.shape.Shape3D;
 
 public abstract class Part {
-    protected Shape shape;
+    protected Shape3D shape;
 
-    Part(Point3D initialPosition) {
+    public Part(Point3D initialPosition) {
         this.shape = setShape();
         Space.getInstance().addShape(this.shape, initialPosition);
     }
 
-    protected abstract Shape setShape();
+    protected abstract Shape3D setShape();
 }

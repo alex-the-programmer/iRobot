@@ -1,4 +1,15 @@
 package stractural.abstrat.common;
 
-public interface Bearing extends Part {
+import javafx.geometry.Point3D;
+import javafx.scene.shape.Shape3D;
+import javafx.scene.shape.Sphere;
+
+public class Bearing extends Part {
+    Bearing(Point3D initialPosition) {
+        super(initialPosition);
+    }
+
+    protected Shape3D setShape() {
+        return new Sphere(12);
+    }
 }

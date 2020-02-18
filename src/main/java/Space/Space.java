@@ -3,7 +3,7 @@ package Space;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.shape.Shape;
+import javafx.scene.shape.Shape3D;
 
 public class Space {
     private static Space space;
@@ -19,7 +19,7 @@ public class Space {
         return space;
     }
 
-    public void addShape(Shape shape, Point3D initialPosition){
+    public void addShape(Shape3D shape, Point3D initialPosition){
         this.group.getChildren().add(shape);
         shape.translateXProperty().set(initialPosition.getX());
         shape.translateYProperty().set(initialPosition.getY());
