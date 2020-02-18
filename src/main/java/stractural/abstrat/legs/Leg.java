@@ -13,7 +13,7 @@ public abstract class Leg implements Part {
     protected Bearing bottomBearing;
     protected Foot foot;
 
-    void roll(int distance, MovingDirection direction){
+    public void roll(int distance, MovingDirection direction){
         foot.roll(distance, direction);
     }
 }
