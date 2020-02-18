@@ -1,12 +1,19 @@
 package stractural.abstrat.legs;
 
+import lombok.AllArgsConstructor;
 import stractural.abstrat.common.Bearing;
+import stractural.abstrat.common.MovingDirection;
 import stractural.abstrat.common.Part;
 import stractural.abstrat.common.Pipe;
 
-public interface Leg extends Part {
-    Bearing getTopBearing();
-    stractural.abstrat.common.Pipe Pipe();
-    Bearing BottomBearing();
-    Foot Foot();
+@AllArgsConstructor
+public abstract class Leg implements Part {
+    protected Bearing topBearing;
+    protected stractural.abstrat.common.Pipe pipe;
+    protected Bearing bottomBearing;
+    protected Foot foot;
+
+    void roll(int distance, MovingDirection direction){
+        foot.roll(distance, direction);
+    }
 }

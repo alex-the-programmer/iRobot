@@ -1,10 +1,18 @@
 package stractural.abstrat.legs;
 
+import lombok.AllArgsConstructor;
 import stractural.abstrat.common.Expandable;
+import stractural.abstrat.common.MovingDirection;
 import stractural.abstrat.common.Part;
 
-public interface Foot extends Part {
-    FootSection getRearFootSection();
-    Expandable getExpander();
-    FootSection getFrontFootSection();
+@AllArgsConstructor
+public abstract class Foot implements Part {
+    protected FootSection rearFootSection;
+    protected Expandable expander;
+    protected FootSection frontFootSection;
+
+    void roll(int distance, MovingDirection direction){
+        rearFootSection.roll(distance, direction);
+        frontFootSection.roll(distance, direction);
+    }
 }

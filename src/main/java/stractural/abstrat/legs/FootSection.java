@@ -1,7 +1,14 @@
 package stractural.abstrat.legs;
 
+import lombok.AllArgsConstructor;
+import stractural.abstrat.common.MovingDirection;
 import stractural.abstrat.common.Part;
 
-public interface FootSection extends Part {
-    Wheel getWheel();
+@AllArgsConstructor
+public abstract class FootSection implements Part {
+    private Wheel wheel;
+
+    void roll(int distance, MovingDirection direction){
+        wheel.roll(distance, direction);
+    }
 }
