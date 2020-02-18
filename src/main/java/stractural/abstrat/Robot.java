@@ -5,6 +5,7 @@ import stractural.abstrat.arms.Arm;
 import stractural.abstrat.common.Expandable;
 import stractural.abstrat.common.MovingDirection;
 import stractural.abstrat.common.Part;
+import stractural.abstrat.common.TurningDirection;
 import stractural.abstrat.legs.Leg;
 
 @AllArgsConstructor
@@ -20,5 +21,8 @@ public abstract class Robot implements Part {
       leftLeg.roll(distance, direction);
    }
 
-
+   public void setTurnAngle(int angle, TurningDirection direction){
+      leftLeg.setTurnAngle(angle, direction);
+      rightLeg.setTurnAngle(angle, direction);
+   }
 }

@@ -1,10 +1,7 @@
 package stractural.abstrat.legs;
 
 import lombok.AllArgsConstructor;
-import stractural.abstrat.common.Bearing;
-import stractural.abstrat.common.MovingDirection;
-import stractural.abstrat.common.Part;
-import stractural.abstrat.common.Pipe;
+import stractural.abstrat.common.*;
 
 @AllArgsConstructor
 public abstract class Leg implements Part {
@@ -15,5 +12,9 @@ public abstract class Leg implements Part {
 
     public void roll(int distance, MovingDirection direction){
         foot.roll(distance, direction);
+    }
+
+    public void setTurnAngle(int angle, TurningDirection direction) {
+        foot.setTurnAngle(angle, direction);
     }
 }
