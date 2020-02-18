@@ -1,26 +1,34 @@
 package stractural.abstrat;
 
 import javafx.geometry.Point3D;
+import javafx.scene.Group;
+import javafx.scene.Node;
+import lombok.AllArgsConstructor;
+import lombok.val;
 import stractural.abstrat.common.Expandable;
 import stractural.abstrat.common.MovingDirection;
 import stractural.abstrat.common.Part;
 import stractural.abstrat.common.TurningDirection;
 import stractural.abstrat.legs.Leg;
 
-public abstract class Robot extends Part {
+@AllArgsConstructor
+public class Robot extends Part {
    private TopBox topBox;
    private Expandable leftTopBoxExpandable;
    private Expandable rightTopBoxExpandable;
    private Leg leftLeg;
    private Leg rightLeg;
 
-   public Robot(Point3D initialPosition, TopBox topBox, Expandable leftTopBoxExpandable, Expandable rightTopBoxExpandable, Leg leftLeg, Leg rightLeg) {
-      super(initialPosition);
-      this.topBox = topBox;
-      this.leftTopBoxExpandable = leftTopBoxExpandable;
-      this.rightTopBoxExpandable = rightTopBoxExpandable;
-      this.leftLeg = leftLeg;
-      this.rightLeg = rightLeg;
+   protected Node setShape() {
+      val robot = new Group();
+
+      robot.getChildren().add(topBox.getShape());
+      robot.getChildren().add(leftTopBoxExpandable.getShape());
+      robot.getChildren().add(rightTopBoxExpandable.getShape());
+      robot.getChildren().add(leftLeg.getShape());
+      robot.getChildren().add(rightLeg.getShape());
+
+      return robot;
    }
 
    public void move(int distance, MovingDirection direction){
