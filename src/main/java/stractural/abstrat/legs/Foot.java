@@ -1,8 +1,11 @@
 package stractural.abstrat.legs;
 
 import javafx.geometry.Point3D;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.shape.Box;
 import javafx.scene.shape.Shape3D;
+import lombok.val;
 import stractural.abstrat.common.Expandable;
 import stractural.abstrat.common.MovingDirection;
 import stractural.abstrat.common.Part;
@@ -20,10 +23,14 @@ public abstract class Foot extends Part {
         this.frontFootSection = frontFootSection;
     }
 
-    protected Shape3D setShape() {
-        // elaborate the actual empty shape (pure composition)
-        // perhaps groups should be used instead
-        return new Box(1, 1, 1);
+    protected Node setShape() {
+        val foot = new Group();
+
+        foot.getChildren().add(rearFootSection.getShape());
+        foot.getChildren().add(expander.getShape());
+        foot.getChildren().add(frontFootSection.getShape());
+
+        return foot;
     }
 
     void roll(int distance, MovingDirection direction){

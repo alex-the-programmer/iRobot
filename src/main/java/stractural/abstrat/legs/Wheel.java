@@ -1,6 +1,7 @@
 package stractural.abstrat.legs;
 
 import javafx.geometry.Point3D;
+import javafx.scene.Node;
 import javafx.scene.shape.Cylinder;
 import javafx.scene.shape.Shape3D;
 import stractural.abstrat.common.MovingDirection;
@@ -12,8 +13,7 @@ public abstract class Wheel extends Part {
         super(initialPosition);
     }
 
-    protected Shape3D setShape() {
-        // todo elaborate an actual shape
+    protected Node setShape() {
         return new Cylinder(20, 20);
     }
 

@@ -1,6 +1,7 @@
 package stractural.abstrat.common;
 
 import javafx.geometry.Point3D;
+import javafx.scene.Node;
 import javafx.scene.shape.Cylinder;
 import javafx.scene.shape.Shape3D;
 
@@ -9,13 +10,13 @@ public abstract class Expandable extends Part {
         super(initialPosition);
     }
 
-    protected Shape3D setShape() {
+    protected Node setShape() {
         return new Cylinder(10, 50);
     }
 
-    abstract void extendBy(int distance);
+    public abstract void extendBy(int distance);
 
-    abstract void collapseBy(int distance);
+    public abstract void collapseBy(int distance);
 
-    abstract void setTo(int extendedLength);
+    public abstract void setTo(int extendedLength);
 }
