@@ -19,10 +19,7 @@ public class Space {
         return space;
     }
 
-    public void addShape(Node shape, Point3D initialPosition){
+    public void addShape(Node shape){
         this.group.getChildren().add(shape);
-        shape.translateXProperty().set(initialPosition.getX());
-        shape.translateYProperty().set(initialPosition.getY());
-        shape.translateZProperty().set(initialPosition.getZ());
     }
 }

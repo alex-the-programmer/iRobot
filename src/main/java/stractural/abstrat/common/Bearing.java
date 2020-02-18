@@ -5,11 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.shape.Sphere;
 
 public class Bearing extends Part {
-    Bearing(Point3D initialPosition) {
-        super(initialPosition);
-    }
-
-    protected Node setShape() {
+    public Node setShape() {
         return new Sphere(12);
     }
 }

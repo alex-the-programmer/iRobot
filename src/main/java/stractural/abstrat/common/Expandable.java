@@ -6,11 +6,7 @@ import javafx.scene.shape.Cylinder;
 import javafx.scene.shape.Shape3D;
 
 public abstract class Expandable extends Part {
-    public Expandable(Point3D initialPosition) {
-        super(initialPosition);
-    }
-
-    protected Node setShape() {
+    public Node setShape() {
         return new Cylinder(10, 50);
     }
 

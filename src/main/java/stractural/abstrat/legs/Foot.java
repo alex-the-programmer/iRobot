@@ -5,25 +5,20 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.shape.Box;
 import javafx.scene.shape.Shape3D;
+import lombok.AllArgsConstructor;
 import lombok.val;
 import stractural.abstrat.common.Expandable;
 import stractural.abstrat.common.MovingDirection;
 import stractural.abstrat.common.Part;
 import stractural.abstrat.common.TurningDirection;
 
+@AllArgsConstructor
 public abstract class Foot extends Part {
     private FootSection rearFootSection;
     private Expandable expander;
     private FootSection frontFootSection;
 
-    public Foot(Point3D initialPosition, FootSection rearFootSection, Expandable expander, FootSection frontFootSection) {
-        super(initialPosition);
-        this.rearFootSection = rearFootSection;
-        this.expander = expander;
-        this.frontFootSection = frontFootSection;
-    }
-
-    protected Node setShape() {
+    public Node setShape() {
         val foot = new Group();
 
         foot.getChildren().add(rearFootSection.getShape());

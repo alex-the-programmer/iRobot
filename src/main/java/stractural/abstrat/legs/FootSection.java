@@ -6,20 +6,17 @@ import javafx.scene.Node;
 import javafx.scene.shape.Box;
 import javafx.scene.shape.Cylinder;
 import javafx.scene.shape.Shape3D;
+import lombok.AllArgsConstructor;
 import lombok.val;
 import stractural.abstrat.common.MovingDirection;
 import stractural.abstrat.common.Part;
 import stractural.abstrat.common.TurningDirection;
 
+@AllArgsConstructor
 public abstract class FootSection extends Part {
     private Wheel wheel;
 
-    public FootSection(Point3D initialPosition, Wheel wheel) {
-        super(initialPosition);
-        this.wheel = wheel;
-    }
-
-    protected Node setShape() {
+    public Node setShape() {
         val footSection = new Group();
         val platform = new  Box(10, 20, 5);
         footSection.getChildren().add(platform);
