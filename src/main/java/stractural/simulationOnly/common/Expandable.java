@@ -1,6 +1,9 @@
 package stractural.simulationOnly.common;
 
+import javafx.scene.Node;
 import javafx.scene.shape.Cylinder;
+import javafx.scene.shape.Shape3D;
+import lombok.NonNull;
 import lombok.SneakyThrows;
 import lombok.val;
 import stractural.abstrat.common.MotionOverLimitException;
@@ -8,8 +11,9 @@ import stractural.abstrat.common.MotionOverLimitException;
 public class Expandable extends stractural.abstrat.common.Expandable {
 
 
-    public Expandable(int extendedHeight, int maxExtension) {
-        super(extendedHeight, maxExtension);
+    public Expandable(@NonNull int baseHeight, @NonNull int extendedHeight, @NonNull int maxExtension, @NonNull Node extendedObject) {
+        super(baseHeight, extendedHeight, maxExtension, extendedObject);
+        this.cylinder = new Cylinder(10, baseHeight + extendedHeight);
     }
 
     @SneakyThrows
@@ -48,17 +52,15 @@ public class Expandable extends stractural.abstrat.common.Expandable {
     }
 
     private void simulateExtension(int updatedHeight){
-        val shape = (Cylinder) getShape();
         for (int i = extendedHeight+1; i <= updatedHeight; i++){
-            shape.setHeight(i);
+            cylinder.setHeight(i);
             validate();
         }
     }
 
     private void simulateCollapsing(int updatedHeight){
-        val shape = (Cylinder) getShape();
         for (int i = extendedHeight+-1; i >= updatedHeight; i--){
-            shape.setHeight(i);
+            cylinder.setHeight(i);
             validate();
         }
     }

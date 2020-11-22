@@ -4,6 +4,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import lombok.val;
 import stractural.abstrat.common.Bearing;
+import stractural.simulationOnly.common.Expandable;
 
 public class Simulator extends Application {
 
@@ -24,7 +25,12 @@ public class Simulator extends Application {
 
     private Parent getGroup() {
         val testGroup = new Group();
-        testGroup.getChildren().add(new Bearing().getShape());
+        testGroup.getChildren().add(new Expandable(
+                100,
+                100,
+                50,
+                new Bearing().getShape()
+        ).getShape());
         return testGroup;
     }
 }

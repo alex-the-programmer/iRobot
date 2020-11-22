@@ -1,22 +1,44 @@
 package stractural.abstrat.common;
 
 import javafx.geometry.Point3D;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.shape.Cylinder;
 import javafx.scene.shape.Shape3D;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.*;
 
 import javax.management.ConstructorParameters;
+import java.util.ArrayList;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 public abstract class Expandable extends Part {
     @Getter
-    protected int extendedHeight = 0;
+    @NonNull
+    protected int baseHeight;
+
     @Getter
+    @NonNull
+    protected int extendedHeight;
+
+    @Getter
+    @NonNull
     protected int maxExtension;
+
+    @Getter
+    @NonNull
+    protected Node extendedObject;
+
+    protected Cylinder cylinder = new Cylinder(10, baseHeight + extendedHeight);
+
+
+
     public Node setShape() {
-        return new Cylinder(10, 50);
+        val group = new Group();
+        cylinder = new Cylinder(10, baseHeight + extendedHeight); // todo move to a consturctor
+        System.out.println("cylinder is " + cylinder);
+        group.getChildren().add(cylinder);
+        group.getChildren().add(extendedObject);
+        return group;
     }
 
     public abstract void extendBy(int distance);
