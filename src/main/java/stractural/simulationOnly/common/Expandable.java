@@ -19,8 +19,8 @@ public class Expandable extends stractural.abstrat.common.Expandable {
     @SneakyThrows
     @Override
     public void extendBy(int distance) {
-        val updatedHeight = extendedHeight += distance;
-        if(updatedHeight> extendedHeight) {
+        val updatedHeight = extendedHeight + distance;
+        if(updatedHeight> maxExtension) {
             throw new MotionOverLimitException();
         }
 
@@ -32,7 +32,7 @@ public class Expandable extends stractural.abstrat.common.Expandable {
     @SneakyThrows
     @Override
     public void collapseBy(int distance) {
-        val updatedHeight = extendedHeight -= distance;
+        val updatedHeight = extendedHeight - distance;
         if(updatedHeight<0) {
             throw new MotionOverLimitException();
         }
@@ -53,7 +53,7 @@ public class Expandable extends stractural.abstrat.common.Expandable {
 
     private void simulateExtension(int updatedHeight){
         for (int i = extendedHeight+1; i <= updatedHeight; i++){
-            cylinder.setHeight(i);
+            cylinder.setHeight(cylinder.getHeight() + i);
             validate();
         }
     }
