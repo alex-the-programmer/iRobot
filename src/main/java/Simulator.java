@@ -5,6 +5,7 @@ import javafx.scene.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Box;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import lombok.val;
@@ -15,8 +16,8 @@ import stractural.simulationOnly.common.TransformableGroup;
 
 public class Simulator extends Application {
 
-    public static final int WIDTH = 1000;
-    public static final int HEIGHT = 1000;
+    public static final float WIDTH = 1000;
+    public static final float HEIGHT = 1000;
 
     public static void main(String[] args) {
         launch(args);
@@ -38,6 +39,7 @@ public class Simulator extends Application {
         camera.translateXProperty().set(0);
         camera.translateYProperty().set(0);
         camera.translateZProperty().set(-500);
+
         var expandable = new Expandable(
                 100,
                 0,
@@ -51,10 +53,19 @@ public class Simulator extends Application {
         scene.setFill(Color.SILVER);
         scene.setCamera(camera);
 
+        initMouseControl( simulation, scene, primaryStage);
+        initKeyboardControl(primaryStage, camera, simulation);
+
         primaryStage.setTitle("Simulation");
         primaryStage.setScene(scene);
+        primaryStage.show();
 
-        initMouseControl( simulation, scene, primaryStage);
+//        System.out.println("Starting extension");
+//        expandable.extendBy(80);
+//        System.out.println("Finishing extension");
+    }
+
+    private void initKeyboardControl(Stage primaryStage, PerspectiveCamera camera, TransformableGroup simulation) {
         primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
             switch (keyEvent.getCode()){
                 case MINUS:
@@ -70,19 +81,13 @@ public class Simulator extends Application {
                     simulation.rotateByX(10);
                     break;
                 case LEFT:
-                    simulation.rotateByZ(10);
+                    simulation.rotateByY(10);
                     break;
                 case RIGHT:
-                    simulation.rotateByZ(-10);
+                    simulation.rotateByY(-10);
                     break;
             }
         });
-
-        primaryStage.show();
-
-//        System.out.println("Starting extension");
-//        expandable.extendBy(80);
-//        System.out.println("Finishing extension");
     }
 
     private void initMouseControl(TransformableGroup group, Scene scene, Stage stage) {
