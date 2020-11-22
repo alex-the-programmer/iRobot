@@ -7,7 +7,7 @@ import javafx.scene.shape.Shape3D;
 import stractural.abstrat.common.Part;
 
 public class CameraBox extends Part {
-    protected Node setShape() {
+    public Node getShape() {
         return new Box(20, 20, 10);
     }
 }

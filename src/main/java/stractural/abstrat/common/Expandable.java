@@ -28,17 +28,12 @@ public abstract class Expandable extends Part {
     @NonNull
     protected Node extendedObject;
 
-    protected Cylinder cylinder = new Cylinder(10, baseHeight + extendedHeight);
+    protected Cylinder cylinder;
 
 
 
-    public Node setShape() {
-        val group = new Group();
-        cylinder = new Cylinder(10, baseHeight + extendedHeight); // todo move to a consturctor
-        System.out.println("cylinder is " + cylinder);
-        group.getChildren().add(cylinder);
-        group.getChildren().add(extendedObject);
-        return group;
+    public Node getShape() {
+        return new Group(cylinder, extendedObject);
     }
 
     public abstract void extendBy(int distance);

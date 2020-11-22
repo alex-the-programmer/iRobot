@@ -12,7 +12,7 @@ import stractural.abstrat.common.TurningDirection;
 @AllArgsConstructor
 public abstract class Wheel extends Part {
 
-    public Node setShape() {
+    public Node getShape() {
         return new Cylinder(20, 20);
     }
 

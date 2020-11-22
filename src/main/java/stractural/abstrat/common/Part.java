@@ -9,14 +9,7 @@ import lombok.SneakyThrows;
 public abstract class Part {
     private final int MOTION_DELAY_UNIT = 200;
 
-    @Getter
-    private Node shape;
-
-    public Part() {
-        this.shape = setShape();
-    }
-
-    protected abstract Node setShape();
+    public abstract Node getShape();
 
     // this method should also validate for collision of any objects within the system (with other parts of the robot or external objects on the scene) and raise an error
     @SneakyThrows

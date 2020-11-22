@@ -14,7 +14,7 @@ public class Leg extends Part {
     private Bearing bottomBearing;
     private Foot foot;
 
-    protected Node setShape() {
+    public Node getShape() {
         val leg = new Group();
         leg.getChildren().add(topBearing.getShape());
         leg.getChildren().add(pipe.getShape());

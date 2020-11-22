@@ -18,7 +18,7 @@ public abstract class Foot extends Part {
     private Expandable expander;
     private FootSection frontFootSection;
 
-    public Node setShape() {
+    public Node getShape() {
         val foot = new Group();
 
         foot.getChildren().add(rearFootSection.getShape());

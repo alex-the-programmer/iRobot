@@ -15,7 +15,7 @@ public class TopBox extends Part {
     private Arm rightArm;
 
 
-    protected Node setShape() {
+    public Node getShape() {
         return new Box(100, 100, 50);
     }
 }

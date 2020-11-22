@@ -6,7 +6,7 @@ import javafx.scene.shape.Cylinder;
 import javafx.scene.shape.Shape3D;
 
 public class Pipe extends Part {
-    protected Node setShape() {
+    public Node getShape() {
         return new Cylinder(10, 200);
     }
 }

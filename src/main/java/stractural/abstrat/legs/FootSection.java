@@ -16,7 +16,7 @@ import stractural.abstrat.common.TurningDirection;
 public abstract class FootSection extends Part {
     private Wheel wheel;
 
-    public Node setShape() {
+    public Node getShape() {
         val footSection = new Group();
         val platform = new  Box(10, 20, 5);
         footSection.getChildren().add(platform);

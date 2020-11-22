@@ -5,7 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.shape.Sphere;
 
 public class Bearing extends Part {
-    public Node setShape() {
+    public Node getShape() {
         return new Sphere(12);
     }
 }

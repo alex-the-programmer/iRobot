@@ -19,7 +19,7 @@ public class Robot extends Part {
    private Leg leftLeg;
    private Leg rightLeg;
 
-   protected Node setShape() {
+   public Node getShape() {
       val robot = new Group();
 
       robot.getChildren().add(topBox.getShape());
